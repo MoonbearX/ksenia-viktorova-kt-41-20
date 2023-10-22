@@ -2,6 +2,7 @@ using KseniaViktorovaKt_41_20.Data;
 using NLog;
 using NLog.Web;
 using Microsoft.EntityFrameworkCore;
+using KseniaViktorovaKt_41_20.ServiceExtensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,9 @@ try
     builder.Services.AddSwaggerGen();
 
     builder.Services.AddDbContext<RecordsContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    
+    builder.Services.AddServices();
+    
     var app = builder.Build();
 
     // Configure the HTTP request pipeline.
