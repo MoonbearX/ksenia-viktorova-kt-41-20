@@ -1,8 +1,11 @@
-﻿namespace KseniaViktorovaKt_41_20.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace KseniaViktorovaKt_41_20.Models
 {
     public class Student
     {
         //public string NumberGradebook { get; set; }
+        [Key]
         public int Id { get; set; }
         public int? IdGroup { get; set; }
         public string? Name { get; set; }
