@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KseniaViktorovaKt_41_20.Migrations
 {
     [DbContext(typeof(RecordsContext))]
-    [Migration("20231025171523_upd_db")]
-    partial class upd_db
+    [Migration("20231026140117_upd_db2")]
+    partial class upd_db2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,6 +58,19 @@ namespace KseniaViktorovaKt_41_20.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime?>("DateBirth")
+                        .IsRequired()
+                        .HasColumnType("date")
+                        .HasColumnName("student_date_birth")
+                        .HasComment("Дата рождения студента");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar")
+                        .HasColumnName("student_email")
+                        .HasComment("Email студента");
+
                     b.Property<int?>("IdGroup")
                         .IsRequired()
                         .HasColumnType("int")
@@ -77,6 +90,13 @@ namespace KseniaViktorovaKt_41_20.Migrations
                         .HasColumnType("varchar")
                         .HasColumnName("student_patronymic")
                         .HasComment("Отчество студента");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasMaxLength(16)
+                        .HasColumnType("varchar")
+                        .HasColumnName("student_phone")
+                        .HasComment("Номер телефона студента");
 
                     b.Property<string>("Surname")
                         .IsRequired()

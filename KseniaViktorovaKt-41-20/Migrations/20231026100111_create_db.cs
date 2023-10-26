@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -32,7 +33,10 @@ namespace KseniaViktorovaKt_41_20.Migrations
                     id_group = table.Column<int>(type: "int", nullable: false, comment: "Идентификатор группы"),
                     student_name = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false, comment: "Имя студента"),
                     student_surname = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false, comment: "Фамилия студента"),
-                    student_patronymic = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false, comment: "Отчество студента")
+                    student_patronymic = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false, comment: "Отчество студента"),
+                    student_date_birth = table.Column<DateTime>(type: "date", nullable: false, comment: "Дата рождения студента"),
+                    student_email = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false, comment: "Email студента"),
+                    student_phone = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false, comment: "Номер телефона студента")
                 },
                 constraints: table =>
                 {

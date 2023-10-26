@@ -56,7 +56,7 @@ namespace KseniaViktorovaKt_41_20.Controllers
         }
 
         [HttpDelete("Delete students with id")]
-        public async Task<IActionResult> DeleteStudentAsync(int id, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> DeleteStudentAsync(int id,CancellationToken cancellationToken = default)
         {
             var student = await _studentService.GetStudentAsync(id, cancellationToken);
             if (student == null)

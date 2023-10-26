@@ -4,6 +4,7 @@ using KseniaViktorovaKt_41_20.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KseniaViktorovaKt_41_20.Migrations
 {
     [DbContext(typeof(RecordsContext))]
-    partial class RecordsContextModelSnapshot : ModelSnapshot
+    [Migration("20231026134952_upd_db")]
+    partial class upd_db
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -90,7 +93,7 @@ namespace KseniaViktorovaKt_41_20.Migrations
 
                     b.Property<string>("Phone")
                         .IsRequired()
-                        .HasMaxLength(16)
+                        .HasMaxLength(18)
                         .HasColumnType("varchar")
                         .HasColumnName("student_phone")
                         .HasComment("Номер телефона студента");

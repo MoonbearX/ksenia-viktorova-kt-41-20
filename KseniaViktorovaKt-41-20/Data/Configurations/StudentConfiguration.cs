@@ -13,10 +13,10 @@ namespace KseniaViktorovaKt_41_20.Data.Configurations
         public void Configure(EntityTypeBuilder<Student> builder)
         {
             builder
-               .HasKey(p => p.Id)
-               .HasName($"pk_" +
-               $"" +
-               $"{TableName}_student_id");
+                .HasKey(p => p.Id)
+                .HasName($"pk_" +
+                $"" +
+                $"{TableName}_student_id");
 
             builder.Property(p => p.Id)
                 .ValueGeneratedOnAdd();
@@ -42,6 +42,24 @@ namespace KseniaViktorovaKt_41_20.Data.Configurations
                 .HasColumnName("student_patronymic")
                 .HasColumnType(ColumnType.String).HasMaxLength(200)
                 .HasComment("Отчество студента");
+
+            builder.Property(p => p.DateBirth)
+               .IsRequired()
+               .HasColumnName("student_date_birth")
+               .HasColumnType(ColumnType.Date)
+               .HasComment("Дата рождения студента");
+
+            builder.Property(p => p.Email)
+               .IsRequired()
+               .HasColumnName("student_email")
+               .HasColumnType(ColumnType.String).HasMaxLength(200)
+               .HasComment("Email студента");
+
+            builder.Property(p => p.Phone)
+               .IsRequired()
+               .HasColumnName("student_phone")
+               .HasColumnType(ColumnType.String).HasMaxLength(16)
+               .HasComment("Номер телефона студента");
 
             builder.Property(p => p.IdGroup)
                 .IsRequired()
